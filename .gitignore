@@ -1,0 +1,7 @@
+
+Applications/Geonutest-master/
+Applications/rdecay01/
+Applications/Test/
+Applications/*/build/
+Applications/*/data_out/*
+.DS_Store
