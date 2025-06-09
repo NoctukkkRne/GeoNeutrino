@@ -9,6 +9,7 @@
 #include <TGraph.h>
 #include <TH1.h>
 #include <TH2.h>
+#include <TH3.h>
 #include <TMath.h>
 #include <TRandom.h>
 #include <TString.h>
