@@ -69,7 +69,7 @@ int main() {
   h1dCS_AntiNuX_1MeV->SetLineStyle(1);
   h1dCS_NuE_1MeV->SetLineColor(kBlue);
   h1dCS_NuE_1MeV->SetLineStyle(1);
-  h1dCS_NuX_1MeV->SetLineColor(kPink);
+  h1dCS_NuX_1MeV->SetLineColor(kMagenta);
   h1dCS_NuX_1MeV->SetLineStyle(1);
   h1dCS_AntiNuE_2MeV->SetLineColor(kRed);
   h1dCS_AntiNuE_2MeV->SetLineStyle(3);

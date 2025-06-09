@@ -15,8 +15,10 @@ public:
   static double eV;
   static double keV;
   static double MeV;
+  static double GeV;
   static double J;
   static double eV2;
+  static double GeV2;
 
   // Length
   static double m;
@@ -52,9 +54,7 @@ public:
   static double pi;
 
   // Physical const
-  // static double c;
-  // static double hbar;
-  // static double qe;
+  static double Gf;
 
   // Particle parameters
   static double me;

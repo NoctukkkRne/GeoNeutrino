@@ -25,12 +25,29 @@ double NeutrinoOscillation::Pex_vac(double E, double L) {
   return 1.0 - Pee_vac(E, L);
 }
 
-double NeutrinoOscillation::Pee_MSW(double E, double L, double Ni, double Nf) {
+double NeutrinoOscillation::Pee_MSW(double E, double Ni, double Nf) {
+  double Ai = sqrt(2.0) / 2.0 * Const::Gf * Ni;
+  double tan2theta_12Mi =
+      Const::deltamsquare21 / (4.0 * E) * sin(2.0 * Const::theta_12) /
+      (Const::deltamsquare21 / (4.0 * E) * cos(2.0 * Const::theta_12) - Ai);
+  double cos2theta_12Mi = 1.0 / sqrt(1.0 + pow(tan2theta_12Mi, 2));
+  if (tan2theta_12Mi < 0.0) {
+    cos2theta_12Mi *= -1.0;
+  }
 
-  return 0.0;
+  double Af = sqrt(2.0) / 2.0 * Const::Gf * Nf;
+  double tan2theta_12Mf =
+      Const::deltamsquare21 / (4.0 * E) * sin(2.0 * Const::theta_12) /
+      (Const::deltamsquare21 / (4.0 * E) * cos(2.0 * Const::theta_12) - Af);
+  double cos2theta_12Mf = 1.0 / sqrt(1.0 + pow(tan2theta_12Mf, 2));
+  if (tan2theta_12Mf < 0.0) {
+    cos2theta_12Mf *= -1.0;
+  }
+
+  return pow(cos(Const::theta_13), 4) *
+         (1.0 + cos2theta_12Mi * cos2theta_12Mf) / 2.0;
 }
 
-double NeutrinoOscillation::Pex_MSW(double E, double L, double Ni, double Nf) {
-
-  return 0.0;
+double NeutrinoOscillation::Pex_MSW(double E, double Ni, double Nf) {
+  return 1.0 - Pee_MSW(E, Ni, Nf);
 }

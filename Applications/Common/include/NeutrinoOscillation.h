@@ -11,8 +11,8 @@ public:
 
   static double Pee_vac(double E, double L);
   static double Pex_vac(double E, double L);
-  static double Pee_MSW(double E, double L, double Ni, double Nf);
-  static double Pex_MSW(double E, double L, double Ni, double Nf);
+  static double Pee_MSW(double E, double Ni, double Nf);
+  static double Pex_MSW(double E, double Ni, double Nf);
 };
 
 #endif
