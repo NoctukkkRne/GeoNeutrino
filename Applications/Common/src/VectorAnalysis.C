@@ -104,6 +104,18 @@ void Corrdinate3D::SetXYZ(Vector3D *xaxis, Vector3D *yaxis, Vector3D *zaxis) {
   Zaxis->Scale(1.0);
 }
 
+Vector3D *Corrdinate3D::GetXaxis() const {
+  return Xaxis;
+}
+
+Vector3D *Corrdinate3D::GetYaxis() const {
+  return Yaxis;
+}
+
+Vector3D *Corrdinate3D::GetZaxis() const {
+  return Zaxis;
+}
+
 double Vector3DDot(Vector3D *vec1, Vector3D *vec2) {
   return vec1->GetX() * vec2->GetX() + vec1->GetY() * vec2->GetY() +
          vec1->GetZ() * vec2->GetZ();
