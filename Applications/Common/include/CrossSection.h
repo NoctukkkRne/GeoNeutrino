@@ -14,11 +14,11 @@ public:
   static double DCS_Scat_AntiNuE(double E_nu, double T_e);
   static double DCS_Scat_NuX(double E_nu, double T_e);
   static double DCS_Scat_AntiNuX(double E_nu, double T_e);
-
   static double TCS_Scat_NuE(double E_nu);
   static double TCS_Scat_AntiNuE(double E_nu);
   static double TCS_Scat_NuX(double E_nu);
   static double TCS_Scat_AntiNuX(double E_nu);
+  static double Theta_Scat(double E_nu, double T_e);
 };
 
 #endif

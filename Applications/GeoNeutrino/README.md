@@ -1,6 +1,4 @@
-<!--
-This is a doc for program GeoNeutrinoFlux
--->
+# GeoNeutrino
 
 ## Type
 Type stands for the type of type of the crust,

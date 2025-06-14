@@ -105,3 +105,16 @@ double CrossSection::DCS_Scat_AntiNuX(double E_nu, double T_e) {
   }
   return result;
 }
+
+// Scattering Angle for Nu Electron Scattering
+double CrossSection::Theta_Scat(double E_nu, double T_e) {
+  double result;
+
+  const double temax = 2.0 * E_nu * E_nu / (2.0 * E_nu + Const::me);
+  if (T_e > temax) {
+    result = 0.0;
+  } else {
+    result = acos((1.0 + Const::me / E_nu) / sqrt(1.0 + 2.0 * Const::me / T_e));
+  }
+  return result;
+}

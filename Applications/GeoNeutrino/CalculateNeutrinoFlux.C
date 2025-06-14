@@ -19,7 +19,7 @@ int main() {
 
   const int NbinsCosTheta_earth = 100;
   const int NBinsPhi_earth = 100;
-  const int NBinsE = 250;
+  const int NBinsE = 1000;
   const double Emin = 0.0 * Unit::MeV;
   const double Emax = 5.0 * Unit::MeV;
 
@@ -178,10 +178,14 @@ int main() {
         Direction_Neutrino[0] - CosTheta_earth * jinpingZaxis[0];
     Direction_Neutrino[1] =
         Direction_Neutrino[1] - CosTheta_earth * jinpingZaxis[1];
+    Direction_Neutrino[2] =
+        Direction_Neutrino[2] - CosTheta_earth * jinpingZaxis[2];
     DirectionScale =
-        sqrt(pow(Direction_Neutrino[0], 2) + pow(Direction_Neutrino[1], 2));
+        sqrt(pow(Direction_Neutrino[0], 2) + pow(Direction_Neutrino[1], 2) +
+             pow(Direction_Neutrino[2], 2));
     Direction_Neutrino[0] /= DirectionScale;
     Direction_Neutrino[1] /= DirectionScale;
+    Direction_Neutrino[2] /= DirectionScale;
 
     CosPhi_earth = Direction_Neutrino[0] * jinpingXaxis[0] +
                    Direction_Neutrino[1] * jinpingXaxis[1] +
@@ -195,17 +199,12 @@ int main() {
       Phi_earth = -acos(CosPhi_earth);
     }
 
-    h3dNeutrino_K40->Fill(CosTheta_earth, Phi_earth, E, Neutrino_K40);
-    h3dNeutrino_K40->Fill(CosTheta_earth, Phi_earth, E, Neutrino_K40);
-    h3dNeutrino_K40->Fill(CosTheta_earth, Phi_earth, E, Neutrino_K40);
-    h3dNeutrino_K40->Fill(CosTheta_earth, Phi_earth, E, Neutrino_K40);
-
     L = sqrt(pow(X - jinpingX, 2) + pow(Y - jinpingY, 2) +
              pow(Z - jinpingZ, 2));
 
     // Flux calculation
     DecayRate_K40 = M * N_K[Type] * Const::x_K40 / Const::mr_K40 * Const::Na *
-                    Const::lambda_U238;
+                    Const::lambda_K40;
     DecayRate_Th232 = M * N_Th[Type] * Const::x_Th232 / Const::mr_Th232 *
                       Const::Na * Const::lambda_Th232;
     DecayRate_U238 = M * N_U[Type] * Const::x_U238 / Const::mr_U238 *
